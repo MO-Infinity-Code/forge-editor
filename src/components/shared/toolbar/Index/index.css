@@ -67,11 +67,6 @@
     z-index: 10;
     min-width: 100px;
 }
-
-.forge-toolbar-group:hover .forge-toolbar-dropdown {
-    display: block;
-}
-
 .forge-dropdown-item {
     display: block;
     padding: 4px 8px;
@@ -79,7 +74,9 @@
     color: #333;
     white-space: nowrap;
 }
-
+.forge-toolbar-dropdown.is-open {
+    display: block;
+}
 .forge-dropdown-item:hover {
     background: #f0f0f0;
 }

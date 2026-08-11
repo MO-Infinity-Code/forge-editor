@@ -1,4 +1,4 @@
-import { createStyleToolbar } from "../style.js"
+import { createStyleToolbar } from "../Style/style.js"
 import { createFontToolbar } from "../font.js"
 import { createFontNameToolbar } from "../fontname.js"
 import { createColorToolbar } from "../color.js"
