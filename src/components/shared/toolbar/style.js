@@ -1,22 +1,48 @@
+// shared/toolbar/style.js
 export function createStyleToolbar() {
-    return `
-    <div class="forge-toolbar-group forge-toolbar-style">
-      <div class="forge-toolbar-group">
-        <button type="button" class="forge-toolbar-button" data-command="style" aria-label="Style">
-          <span class="forge-icon">✦</span>
-        </button>
-        <div class="forge-toolbar-dropdown forge-dropdown-style" role="list" aria-label="Style">
-          <a class="forge-dropdown-item" href="#" data-value="p" role="listitem"><p>Normal</p></a>
-          <a class="forge-dropdown-item" href="#" data-value="blockquote" role="listitem"><blockquote>Blockquote</blockquote></a>
-          <a class="forge-dropdown-item" href="#" data-value="pre" role="listitem"><pre>Code</pre></a>
-          <a class="forge-dropdown-item" href="#" data-value="h1" role="listitem"><h1>Header 1</h1></a>
-          <a class="forge-dropdown-item" href="#" data-value="h2" role="listitem"><h2>Header 2</h2></a>
-          <a class="forge-dropdown-item" href="#" data-value="h3" role="listitem"><h3>Header 3</h3></a>
-          <a class="forge-dropdown-item" href="#" data-value="h4" role="listitem"><h4>Header 4</h4></a>
-          <a class="forge-dropdown-item" href="#" data-value="h5" role="listitem"><h5>Header 5</h5></a>
-          <a class="forge-dropdown-item" href="#" data-value="h6" role="listitem"><h6>Header 6</h6></a>
-        </div>
-      </div>
-    </div>
-  `
+    const container = document.createElement("div")
+    container.className = "forge-toolbar-group forge-toolbar-style"
+
+    const group = document.createElement("div")
+    group.className = "forge-toolbar-group"
+
+    const button = document.createElement("button")
+    button.type = "button"
+    button.className = "forge-toolbar-button"
+    button.dataset.command = "style"
+    button.setAttribute("aria-label", "Style")
+    button.innerHTML = `<span class="forge-icon">✦</span>`
+
+    const dropdown = document.createElement("div")
+    dropdown.className = "forge-toolbar-dropdown forge-dropdown-style"
+    dropdown.setAttribute("role", "list")
+    dropdown.setAttribute("aria-label", "Style")
+
+    const items = [
+        { tag: "p", label: "Normal", value: "p" },
+        { tag: "blockquote", label: "Blockquote", value: "blockquote" },
+        { tag: "pre", label: "Code", value: "pre" },
+        { tag: "h1", label: "Header 1", value: "h1" },
+        { tag: "h2", label: "Header 2", value: "h2" },
+        { tag: "h3", label: "Header 3", value: "h3" },
+        { tag: "h4", label: "Header 4", value: "h4" },
+        { tag: "h5", label: "Header 5", value: "h5" },
+        { tag: "h6", label: "Header 6", value: "h6" }
+    ]
+
+    items.forEach(({ tag, label, value }) => {
+        const a = document.createElement("a")
+        a.className = "forge-dropdown-item"
+        a.href = "#"
+        a.dataset.value = value
+        a.setAttribute("role", "listitem")
+        a.innerHTML = `<${tag}>${label}</${tag}>`
+        dropdown.appendChild(a)
+    })
+
+    group.appendChild(button)
+    group.appendChild(dropdown)
+    container.appendChild(group)
+
+    return container
 }

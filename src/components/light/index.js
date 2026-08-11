@@ -1,14 +1,17 @@
-import { createToolbar } from "../shared/toolbar/index.js"
+// light/index.js
+import { createToolbar } from "../shared/toolbar/Index/index.js"
 
 export function createLightEditor(options) {
-    return `
-    <div class="forge-editor forge-editor--light">
-      ${createToolbar()}
-      <div
-        class="forge-editor__content"
-        contenteditable="true"
-        data-placeholder="${options.placeholder}"
-      ></div>
-    </div>
-  `
+    const editor = document.createElement("div")
+    editor.className = "forge-editor forge-editor--light"
+
+    editor.appendChild(createToolbar())
+
+    const content = document.createElement("div")
+    content.className = "forge-editor__content"
+    content.contentEditable = "true"
+    content.setAttribute("data-placeholder", options.placeholder)
+    editor.appendChild(content)
+
+    return editor
 }

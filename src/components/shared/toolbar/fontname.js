@@ -1,3 +1,4 @@
+// shared/toolbar/fontname.js
 export function createFontNameToolbar() {
     const fonts = [
         "Arial",
@@ -13,22 +14,34 @@ export function createFontNameToolbar() {
         "Segoe UI"
     ]
 
-    return `
-    <div class="forge-toolbar-group forge-toolbar-fontname">
-      <button type="button" class="forge-toolbar-button forge-fontname-button" data-command="fontName" aria-label="Font Family">
-        <span class="forge-current-fontname">Nunito Sans</span>
-      </button>
-      <div class="forge-toolbar-dropdown forge-dropdown-fontname" role="list" aria-label="Font Family">
-        ${fonts
-            .map(
-                (font) => `
-          <a class="forge-dropdown-item" href="#" data-value="${font}" role="listitem" style="font-family: '${font}'">
-            ${font}
-          </a>
-        `
-            )
-            .join("")}
-      </div>
-    </div>
-  `
+    const container = document.createElement("div")
+    container.className = "forge-toolbar-group forge-toolbar-fontname"
+
+    const button = document.createElement("button")
+    button.type = "button"
+    button.className = "forge-toolbar-button forge-fontname-button"
+    button.dataset.command = "fontName"
+    button.setAttribute("aria-label", "Font Family")
+    button.innerHTML = '<span class="forge-current-fontname">Nunito Sans</span>'
+
+    const dropdown = document.createElement("div")
+    dropdown.className = "forge-toolbar-dropdown forge-dropdown-fontname"
+    dropdown.setAttribute("role", "list")
+    dropdown.setAttribute("aria-label", "Font Family")
+
+    fonts.forEach((font) => {
+        const a = document.createElement("a")
+        a.className = "forge-dropdown-item"
+        a.href = "#"
+        a.dataset.value = font
+        a.setAttribute("role", "listitem")
+        a.style.fontFamily = font
+        a.textContent = font
+        dropdown.appendChild(a)
+    })
+
+    container.appendChild(button)
+    container.appendChild(dropdown)
+
+    return container
 }

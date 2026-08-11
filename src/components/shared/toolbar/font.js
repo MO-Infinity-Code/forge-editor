@@ -1,15 +1,32 @@
+// shared/toolbar/font.js
 export function createFontToolbar() {
-    return `
-    <div class="forge-toolbar-group forge-toolbar-font">
-      <button type="button" class="forge-toolbar-button forge-btn-bold" data-command="bold" aria-label="Bold">
-        <strong>B</strong>
-      </button>
-      <button type="button" class="forge-toolbar-button forge-btn-underline" data-command="underline" aria-label="Underline">
-        <u>U</u>
-      </button>
-      <button type="button" class="forge-toolbar-button" data-command="removeFormat" aria-label="Remove Font Style">
-        <span>⌫</span>
-      </button>
-    </div>
-  `
+    const container = document.createElement("div")
+    container.className = "forge-toolbar-group forge-toolbar-font"
+
+    const boldBtn = document.createElement("button")
+    boldBtn.type = "button"
+    boldBtn.className = "forge-toolbar-button forge-btn-bold"
+    boldBtn.dataset.command = "bold"
+    boldBtn.setAttribute("aria-label", "Bold")
+    boldBtn.innerHTML = "<strong>B</strong>"
+
+    const underlineBtn = document.createElement("button")
+    underlineBtn.type = "button"
+    underlineBtn.className = "forge-toolbar-button forge-btn-underline"
+    underlineBtn.dataset.command = "underline"
+    underlineBtn.setAttribute("aria-label", "Underline")
+    underlineBtn.innerHTML = "<u>U</u>"
+
+    const removeBtn = document.createElement("button")
+    removeBtn.type = "button"
+    removeBtn.className = "forge-toolbar-button"
+    removeBtn.dataset.command = "removeFormat"
+    removeBtn.setAttribute("aria-label", "Remove Font Style")
+    removeBtn.innerHTML = "<span>⌫</span>"
+
+    container.appendChild(boldBtn)
+    container.appendChild(underlineBtn)
+    container.appendChild(removeBtn)
+
+    return container
 }
