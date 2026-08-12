@@ -8,6 +8,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 
 .forge-color-button-group {
@@ -88,6 +89,13 @@
     padding: 6px;
     min-width: 160px;
     margin-top: 4px;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.forge-toolbar-dropdown.forge-dropdown-color.is-open {
+    display: block;
 }
 
 [dir="rtl"] .forge-toolbar-dropdown.forge-dropdown-color {
@@ -103,26 +111,40 @@
     margin-bottom: 0;
 }
 
+.forge-color-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
 .forge-color-title {
     font-size: 12px;
     font-weight: bold;
-    margin-bottom: 4px;
     color: #333;
 }
 
 .forge-color-reset {
-    background: none;
-    border: none;
-    color: #06c;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #333;
     cursor: pointer;
-    font-size: 12px;
-    padding: 2px 4px;
-    text-decoration: underline;
-    margin-bottom: 4px;
+    font-size: 11px;
+    padding: 2px 8px;
+    transition: all 0.15s ease;
+    font-weight: 500;
 }
 
 .forge-color-reset:hover {
-    color: #039;
+    background: #e6e6e6;
+    border-color: #999;
+}
+
+.forge-color-reset:active {
+    background: #d0d0d0;
+    border-color: #666;
+    transform: translateY(1px);
 }
 
 .forge-color-palette {

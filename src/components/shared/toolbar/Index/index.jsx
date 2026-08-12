@@ -1,7 +1,7 @@
 import { CreateStyleToolbar } from "../Style/Components"
 import { CreateFontToolbar } from "../font/Components"
 // import { CreateFontNameToolbar } from "../fontname.jsx"
-import { CreateColorToolbar } from "../Color"
+import { CreateColorToolbar } from "../Color/Components"
 // import { CreateParagraphToolbar } from "../paragraph.jsx"
 // import { CreateTableToolbar } from "../table.jsx"
 // import { CreateInsertToolbar } from "../insert.jsx"

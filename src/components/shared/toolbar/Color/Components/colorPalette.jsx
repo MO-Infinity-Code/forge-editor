@@ -22,6 +22,7 @@ export function ColorPalette({ event, onApply }) {
                             type="button"
                             className="forge-color-button"
                             style={{ backgroundColor: color }}
+                            onMouseDown={(e) => e.preventDefault()}
                             onClick={() => onApply(event, color)}
                             aria-label={color}
                         />
