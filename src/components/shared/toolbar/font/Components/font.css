@@ -1,0 +1,56 @@
+.forge-toolbar-font .forge-toolbar-button {
+    min-width: 32px;
+    text-align: center;
+    font-size: 16px;
+    padding: 4px 6px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    box-sizing: border-box;
+}
+
+.forge-toolbar-font .forge-toolbar-button:hover {
+    background: #e6e6e6;
+    border-color: #999;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.forge-toolbar-font .forge-toolbar-button:active {
+    background: #d0d0d0;
+    border-color: #666;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.forge-toolbar-font .forge-toolbar-button strong {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1;
+    color: #333;
+}
+
+.forge-toolbar-font .forge-toolbar-button u {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 16px;
+    line-height: 1;
+    color: #333;
+}
+
+.forge-toolbar-font .forge-toolbar-button span {
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+}
+
+.forge-toolbar-font .forge-toolbar-button.is-active {
+    background: #d4e6f7;
+    border-color: #8ab3d6;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}

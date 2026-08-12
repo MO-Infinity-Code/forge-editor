@@ -1,4 +1,4 @@
-import { bindDropdownToggle } from "../Hooks/dropdown.js"
+import { bindDropdownToggle } from "../../Hooks/dropdown.js"
 
 export function applyStyleToolbarLogic(toolbarElement) {
     const button = toolbarElement.querySelector("[data-command='style']")

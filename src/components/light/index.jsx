@@ -1,13 +1,15 @@
 import { render } from "preact"
 import "../shared/toolbar/Index/index.css"
-import "../shared/toolbar/Style/style.css"
+import "../shared/toolbar/Style/Components/style.css"
 import "../shared/toolbar/Color/color.css"
+import "../shared/toolbar/font/Components/font.css"
 import "../shared/statusbar/Components/index.css"
 import { Toolbar } from "../shared/toolbar/Index/index.jsx"
 import { Statusbar } from "../shared/statusbar/Components/index.jsx"
 import { makeResizable } from "../shared/statusbar/Hooks/resize.js"
-import { applyStyleToolbarLogic } from "../shared/toolbar/Style/styleLogic.jsx"
+import { applyStyleToolbarLogic } from "../shared/toolbar/Style/hooks/styleLogic.jsx"
 import { applyToolbarTooltips } from "../shared/i18n/apply.js"
+import { ensureParagraph } from "../shared/toolbar/Style/Utils/ensureParagraph"
 
 export function createLightEditor(options) {
     const lang = options.lang || "en"
@@ -29,12 +31,13 @@ export function createLightEditor(options) {
     const container = document.createElement("div")
     render(vnode, container)
     const element = container.firstElementChild
+    const contentElement = element.querySelector(".forge-editor__content")
+    ensureParagraph(contentElement)
     const styleToolbarGroup = element.querySelector(".forge-toolbar-style")
     applyStyleToolbarLogic(styleToolbarGroup)
     const toolbarElement = element.querySelector(".forge-editor__toolbar")
     applyToolbarTooltips(toolbarElement, lang)
     const statusbarElement = element.querySelector(".forge-statusbar")
     makeResizable(statusbarElement, element, { minHeight: 100 })
-
     return element
 }

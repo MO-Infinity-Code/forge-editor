@@ -1,5 +1,5 @@
-import { CreateStyleToolbar } from "../Style/index.jsx"
-// import { CreateFontToolbar } from "../font.jsx"
+import { CreateStyleToolbar } from "../Style/Components"
+import { CreateFontToolbar } from "../font/Components"
 // import { CreateFontNameToolbar } from "../fontname.jsx"
 import { CreateColorToolbar } from "../Color"
 // import { CreateParagraphToolbar } from "../paragraph.jsx"
@@ -13,8 +13,8 @@ export function Toolbar() {
             className="forge-editor__toolbar"
             role="toolbar">
             <CreateStyleToolbar />
-            {/* <CreateFontToolbar />
-            <CreateFontNameToolbar /> */}
+            <CreateFontToolbar />
+            {/* <CreateFontNameToolbar /> */}
             <CreateColorToolbar />
             {/* <CreateParagraphToolbar />
             <CreateTableToolbar />
