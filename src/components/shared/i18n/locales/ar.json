@@ -1,5 +1,15 @@
 {
     "style": "نمط",
+    "normal": "عادي",
+    "blockquote": "اقتباس",
+    "code": "كود",
+    "header1": "عنوان 1",
+    "header2": "عنوان 2",
+    "header3": "عنوان 3",
+    "header4": "عنوان 4",
+    "header5": "عنوان 5",
+    "header6": "عنوان 6",
+
     "bold": "عريض",
     "underline": "تسطير",
     "removeFormat": "إزالة تنسيق الخط",
