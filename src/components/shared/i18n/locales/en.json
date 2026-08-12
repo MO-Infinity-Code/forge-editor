@@ -16,6 +16,8 @@
     "fontName": "Font Family",
     "recentColor": "Recent Color",
     "moreColor": "More Color",
+    "recentBackColor": "Recent Background Color",
+    "moreBackColor": "More Background Colors",
     "insertUnorderedList": "Unordered List",
     "insertOrderedList": "Ordered List",
     "paragraph": "Paragraph",

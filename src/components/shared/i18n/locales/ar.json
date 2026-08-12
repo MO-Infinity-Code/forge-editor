@@ -16,6 +16,8 @@
     "fontName": "نوع الخط",
     "recentColor": "آخر لون مستخدم",
     "moreColor": "المزيد من الألوان",
+    "recentBackColor": "آخر لون خلفية",
+    "moreBackColor": "المزيد من ألوان الخلفية",
     "insertUnorderedList": "قائمة نقطية",
     "insertOrderedList": "قائمة مرقمة",
     "paragraph": "فقرة",

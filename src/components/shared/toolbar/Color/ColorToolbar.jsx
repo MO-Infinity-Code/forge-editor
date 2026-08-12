@@ -17,21 +17,31 @@ export function ColorToolbar({ logic }) {
                 <div className="forge-color-button-group">
                     <button
                         type="button"
-                        className="forge-color-main"
+                        className="forge-color-main forge-toolbar-button"
                         onClick={() => applyRecentColor("foreColor")}
                         aria-label="Apply text color">
                         <span
                             className="forge-recent-color"
-                            style={{ backgroundColor: recentForeColor, color: "#fff" }}>
+                            style={{ backgroundColor: "transparent", color: recentForeColor }}>
                             A
+                        </span>
+                        <span
+                            className="forge-tooltip"
+                            data-i18n="recentColor">
+                            Recent Color
                         </span>
                     </button>
                     <button
                         type="button"
-                        className="forge-color-dropdown-btn"
+                        className="forge-color-dropdown-btn forge-toolbar-button"
                         onClick={() => toggleDropdown("fore")}
                         aria-label="More text colors">
                         ▼
+                        <span
+                            className="forge-tooltip"
+                            data-i18n="moreColor">
+                            More Color
+                        </span>
                     </button>
                 </div>
                 {openDropdown === "fore" && (
@@ -57,7 +67,7 @@ export function ColorToolbar({ logic }) {
                 <div className="forge-color-button-group">
                     <button
                         type="button"
-                        className="forge-color-main"
+                        className="forge-color-main forge-toolbar-button"
                         onClick={() => applyRecentColor("backColor")}
                         aria-label="Apply background color">
                         <span
@@ -65,13 +75,23 @@ export function ColorToolbar({ logic }) {
                             style={{ backgroundColor: recentBackColor, color: "#000" }}>
                             A
                         </span>
+                        <span
+                            className="forge-tooltip"
+                            data-i18n="recentBackColor">
+                            Recent Background Color
+                        </span>
                     </button>
                     <button
                         type="button"
-                        className="forge-color-dropdown-btn"
+                        className="forge-color-dropdown-btn forge-toolbar-button"
                         onClick={() => toggleDropdown("back")}
                         aria-label="More background colors">
                         ▼
+                        <span
+                            className="forge-tooltip"
+                            data-i18n="moreBackColor">
+                            More Background Colors
+                        </span>
                     </button>
                 </div>
                 {openDropdown === "back" && (

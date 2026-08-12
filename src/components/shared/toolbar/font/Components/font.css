@@ -49,6 +49,10 @@
     color: #333;
 }
 
+.forge-toolbar-font .forge-toolbar-button .forge-tooltip {
+    font-size: 13px;
+}
+
 .forge-toolbar-font .forge-toolbar-button.is-active {
     background: #d4e6f7;
     border-color: #8ab3d6;
