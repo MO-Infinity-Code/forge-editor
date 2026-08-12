@@ -1,6 +1,7 @@
 import { render } from "preact"
 import "../shared/toolbar/Index/index.css"
 import "../shared/toolbar/Style/style.css"
+import "../shared/toolbar/Color/color.css"
 import "../shared/statusbar/Components/index.css"
 import { Toolbar } from "../shared/toolbar/Index/index.jsx"
 import { Statusbar } from "../shared/statusbar/Components/index.jsx"

@@ -1,0 +1,148 @@
+.forge-toolbar-color {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.forge-color-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.forge-color-button-group {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    overflow: hidden;
+    background: transparent;
+    height: 28px;
+}
+
+.forge-color-button-group:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: #aaa;
+}
+
+.forge-color-main {
+    padding: 0 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+}
+
+.forge-color-main:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.forge-color-dropdown-btn {
+    padding: 0 4px;
+    background: transparent;
+    border: none;
+    border-left: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    min-width: 18px;
+    line-height: 28px;
+}
+
+.forge-color-dropdown-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.forge-recent-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.forge-toolbar-dropdown.forge-dropdown-color {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    min-width: 160px;
+    margin-top: 4px;
+}
+
+[dir="rtl"] .forge-toolbar-dropdown.forge-dropdown-color {
+    left: auto;
+    right: 0;
+}
+
+.forge-color-section {
+    margin-bottom: 6px;
+}
+
+.forge-color-section:last-child {
+    margin-bottom: 0;
+}
+
+.forge-color-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.forge-color-reset {
+    background: none;
+    border: none;
+    color: #06c;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+.forge-color-reset:hover {
+    color: #039;
+}
+
+.forge-color-palette {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.forge-color-row {
+    display: flex;
+    gap: 2px;
+}
+
+.forge-color-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 2px;
+}
+
+.forge-color-button:hover {
+    border-color: #000;
+    transform: scale(1.1);
+}

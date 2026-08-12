@@ -1,7 +1,7 @@
 import { CreateStyleToolbar } from "../Style/index.jsx"
 // import { CreateFontToolbar } from "../font.jsx"
 // import { CreateFontNameToolbar } from "../fontname.jsx"
-// import { CreateColorToolbar } from "../color.jsx"
+import { CreateColorToolbar } from "../Color"
 // import { CreateParagraphToolbar } from "../paragraph.jsx"
 // import { CreateTableToolbar } from "../table.jsx"
 // import { CreateInsertToolbar } from "../insert.jsx"
@@ -14,9 +14,9 @@ export function Toolbar() {
             role="toolbar">
             <CreateStyleToolbar />
             {/* <CreateFontToolbar />
-            <CreateFontNameToolbar />
+            <CreateFontNameToolbar /> */}
             <CreateColorToolbar />
-            <CreateParagraphToolbar />
+            {/* <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
             <CreateViewToolbar /> */}

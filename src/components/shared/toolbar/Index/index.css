@@ -51,6 +51,11 @@
     cursor: pointer;
     font-size: 14px;
     line-height: 1;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .forge-toolbar-button:hover {
@@ -67,6 +72,7 @@
     z-index: 10;
     min-width: 100px;
 }
+
 .forge-dropdown-item {
     display: block;
     padding: 4px 8px;
@@ -74,9 +80,17 @@
     color: #333;
     white-space: nowrap;
 }
+
 .forge-toolbar-dropdown.is-open {
     display: block;
 }
+
 .forge-dropdown-item:hover {
     background: #f0f0f0;
+}
+
+.forge-editor__toolbar .forge-toolbar-button,
+.forge-editor__toolbar .forge-color-button-group {
+    height: 28px;
+    box-sizing: border-box;
 }
