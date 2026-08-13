@@ -5,6 +5,8 @@ import "../shared/toolbar/Color/Components/color.css"
 import "../shared/statusbar/Components/index.css"
 import "../shared/toolbar/Insert/Components/insert.css"
 import "../shared/toolbar/ImagePopover/Components/imagePopover.css"
+import "../shared/toolbar/Paragraph/Components/paragraph.css"
+
 import { Toolbar } from "../shared/toolbar/Index/index.jsx"
 import { Statusbar } from "../shared/statusbar/Components/index.jsx"
 import { makeResizable } from "../shared/statusbar/Hooks/resize.js"
