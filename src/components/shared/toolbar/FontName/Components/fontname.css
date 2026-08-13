@@ -1,0 +1,10 @@
+.forge-fontname-button {
+    min-width: 80px;
+    text-align: left;
+}
+
+.forge-dropdown-fontname {
+    min-width: 120px;
+    max-height: 160px;
+    overflow-y: auto;
+}
