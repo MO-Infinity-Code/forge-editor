@@ -32,12 +32,7 @@
     border: none;
     cursor: pointer;
     font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-width: 28px;
-    height: 28px;
-    position: relative;
 }
 
 .forge-color-main:hover {
@@ -51,13 +46,8 @@
     border-left: 1px solid #ccc;
     cursor: pointer;
     font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #666;
     min-width: 18px;
-    height: 28px;
-    position: relative;
 }
 
 .forge-color-dropdown-btn:hover {
@@ -78,18 +68,11 @@
 }
 
 .forge-toolbar-dropdown.forge-dropdown-color {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 20;
-    background: #fff;
-    border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     padding: 6px;
     min-width: 160px;
     margin-top: 4px;
-    display: none;
     max-height: 200px;
     overflow-y: auto;
 }
@@ -173,27 +156,5 @@
 }
 
 .forge-toolbar-color .forge-toolbar-button .forge-tooltip {
-    font-size: 13px;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffe1;
-    color: #000;
-    border: 1px solid #333;
-    border-radius: 2px;
-    padding: 2px 8px;
-    line-height: 1.6;
-    white-space: nowrap;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.15s ease;
-    z-index: 30;
-}
-
-.forge-toolbar-color .forge-toolbar-button:hover .forge-tooltip {
-    opacity: 1;
-    visibility: visible;
+    padding: 2px 7px;
 }

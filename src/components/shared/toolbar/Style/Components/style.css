@@ -1,11 +1,6 @@
 /* تنسيق زر Style ليكون بنفس ارتفاع باقي الأزرار */
 .forge-toolbar-style .forge-toolbar-button {
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0 8px;
-    box-sizing: border-box;
 }
 
 /* تنسيق الـ dropdown الخاص بـ Style */
@@ -14,15 +9,10 @@
     max-height: 96px;
     overflow-y: auto;
     top: calc(100% + 4px);
-    left: 0;
-    background: #fff;
-    border: 1px solid #ccc;
     border-radius: 2px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     padding: 4px 0;
     z-index: 20;
-    display: none;
-    position: absolute;
 }
 
 .forge-dropdown-style.is-open {
@@ -30,17 +20,9 @@
 }
 
 .forge-dropdown-item {
-    display: block;
     padding: 4px 12px;
-    text-decoration: none;
-    color: #333;
-    white-space: nowrap;
     cursor: pointer;
     transition: background 0.1s ease;
-}
-
-.forge-dropdown-item:hover {
-    background: #f0f0f0;
 }
 
 .forge-dropdown-item p,
