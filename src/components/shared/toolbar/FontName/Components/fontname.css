@@ -3,8 +3,42 @@
     text-align: left;
 }
 
-.forge-dropdown-fontname {
-    min-width: 120px;
-    max-height: 160px;
-    overflow-y: auto;
+.forge-toolbar-group.forge-toolbar-fontname .forge-toolbar-dropdown.forge-dropdown-fontname {
+    min-width: 120px !important;
+    max-height: 100px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    z-index: 10 !important;
+    padding: 0 !important;
+}
+
+.forge-toolbar-group.forge-toolbar-fontname
+    .forge-toolbar-dropdown.forge-dropdown-fontname.is-open {
+    display: block !important;
+}
+
+.forge-toolbar-group.forge-toolbar-fontname
+    .forge-toolbar-dropdown.forge-dropdown-fontname
+    .forge-dropdown-item {
+    padding: 8px 12px !important;
+    display: block !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    height: 30px !important;
+    line-height: 14px !important;
+}
+
+.forge-toolbar-group.forge-toolbar-fontname
+    .forge-toolbar-dropdown.forge-dropdown-fontname
+    .forge-dropdown-item:last-child {
+    border-bottom: none !important;
 }
