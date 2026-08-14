@@ -5,7 +5,7 @@ import { CreateColorToolbar } from "../Color/Components"
 import { CreateParagraphToolbar } from "../Paragraph/Components"
 import { CreateTableToolbar } from "../Table/Components"
 import { CreateInsertToolbar } from "../Insert/Components"
-// import { CreateViewToolbar } from "../view.jsx"
+import { CreateViewToolbar } from "../View/Components"
 
 export function Toolbar() {
     return (
@@ -19,7 +19,7 @@ export function Toolbar() {
             <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
-            {/* <CreateViewToolbar /> */}
+            <CreateViewToolbar />
         </div>
     )
 }

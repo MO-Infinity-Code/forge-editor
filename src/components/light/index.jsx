@@ -7,6 +7,7 @@ import "../shared/toolbar/Insert/Components/insert.css"
 import "../shared/toolbar/ImagePopover/Components/imagePopover.css"
 import "../shared/toolbar/Paragraph/Components/paragraph.css"
 import "../shared/toolbar/Table/Components/table.css"
+import "../shared/toolbar/View/Components/view.css"
 
 import { Toolbar } from "../shared/toolbar/Index/index.jsx"
 import { Statusbar } from "../shared/statusbar/Components/index.jsx"
