@@ -1,0 +1,40 @@
+# Source files
+src/
+index.html
+
+# Development files
+vite.config.js
+.git/
+.gitignore
+
+# Node modules
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+
+# Build artifacts (will be included via files field in package.json)
+dist/
+
+# Documentation
+README.md
+*.md
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

@@ -2,14 +2,14 @@ import { render } from "preact"
 import "../shared/toolbar/Index/index.css"
 import "../shared/toolbar/Style/Components/style.css"
 import "../shared/toolbar/Color/Components/color.css"
-import "../shared/statusbar/Components/index.css"
 import "../shared/toolbar/Insert/Components/insert.css"
 import "../shared/toolbar/ImagePopover/Components/imagePopover.css"
 import "../shared/toolbar/Paragraph/Components/paragraph.css"
 import "../shared/toolbar/Table/Components/table.css"
 import "../shared/toolbar/View/Components/view.css"
 import "../shared/toolbar/FontName/Components/fontname.css"
-
+import "../shared/toolbar/font/Components/font.css"
+import "../shared/statusbar/Components/index.css"
 import { Toolbar } from "../shared/toolbar/Index/index.jsx"
 import { Statusbar } from "../shared/statusbar/Components/index.jsx"
 import { makeResizable } from "../shared/statusbar/Hooks/resize.js"
@@ -17,6 +17,24 @@ import { applyStyleToolbarLogic } from "../shared/toolbar/Style/Hooks/styleLogic
 import { applyToolbarTooltips } from "../shared/i18n/apply.js"
 import { ensureParagraph } from "../shared/toolbar/Style/Utils/ensureParagraph.jsx"
 import { CreateImagePopover } from "../shared/toolbar/ImagePopover/Components"
+
+function createEditorAPI(contentElement) {
+    return {
+        getHTML() {
+            return contentElement.innerHTML
+        },
+        setHTML(html) {
+            contentElement.innerHTML = html
+        },
+        getText() {
+            return contentElement.textContent
+        },
+        getSelection() {
+            const sel = window.getSelection()
+            return sel ? sel.toString() : ""
+        }
+    }
+}
 
 export function createLightEditor(options) {
     const lang = options.lang || "en"
@@ -47,5 +65,8 @@ export function createLightEditor(options) {
     applyToolbarTooltips(toolbarElement, lang)
     const statusbarElement = element.querySelector(".forge-statusbar")
     makeResizable(statusbarElement, element, { minHeight: 100 })
-    return element
+
+    const api = createEditorAPI(contentElement)
+
+    return { element, ...api }
 }

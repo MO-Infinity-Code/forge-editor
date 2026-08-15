@@ -6,17 +6,61 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0" />
         <title>Forge Editor</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+
+            #html-output {
+                width: 628px;
+                height: 150px;
+                margin-top: 12px;
+                padding: 8px;
+                font-family: monospace;
+                font-size: 13px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                resize: vertical;
+            }
+
+            #get-html-btn {
+                margin-top: 10px;
+                padding: 6px 14px;
+                font-size: 14px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background: #f5f5f5;
+            }
+
+            #get-html-btn:hover {
+                background: #e6e6e6;
+            }
+        </style>
     </head>
 
     <body>
-        <!-- best width = {640 ,343} -->
+        <!-- best width = {628px ,338px} -->
         <forge-editor
             type="light"
             placeholder="Write something..."
-            width="640px"
+            width="628px"
             height="200px"
             lang="en"
             dir="ltr"></forge-editor>
+
+        <br />
+        <button
+            type="button"
+            id="get-html-btn">
+            Get HTML
+        </button>
+        <textarea
+            id="html-output"
+            readonly
+            placeholder="الـ HTML هيظهر هنا..."></textarea>
 
         <script
             type="module"

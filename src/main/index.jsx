@@ -4,12 +4,25 @@ import { createLightEditor } from "../components/light/index.jsx"
 function ForgeEditor(element) {
     const options = getEditorOptions(element)
     if (options.type === "light") {
-        const editorEl = createLightEditor(options)
+        const {
+            element: editorEl,
+            getHTML,
+            setHTML,
+            getText,
+            getSelection
+        } = createLightEditor(options)
         element.innerHTML = ""
         element.appendChild(editorEl)
         editorEl.style.width = options.width
         editorEl.style.height = options.height
-        return editorEl
+
+        return {
+            element: editorEl,
+            getHTML,
+            setHTML,
+            getText,
+            getSelection
+        }
     }
     return null
 }
