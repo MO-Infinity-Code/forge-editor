@@ -1,4 +1,5 @@
 import { defineConfig } from "vite"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
     build: {
@@ -22,5 +23,6 @@ export default defineConfig({
     esbuild: {
         jsx: "automatic",
         jsxImportSource: "preact"
-    }
+    },
+    plugins: [tailwindcss()]
 })

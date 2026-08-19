@@ -1,6 +1,8 @@
 const DEFAULT_MIN_HEIGHT = 100
 
 export function makeResizable(handle, target, options = {}) {
+    if (!handle || !target) return () => {}
+
     const minHeight = options.minHeight ?? DEFAULT_MIN_HEIGHT
     const maxHeight = options.maxHeight ?? Infinity
 
