@@ -11,16 +11,16 @@ const colors = [
 
 export function ColorPalette({ event, onApply }) {
     return (
-        <div className="forge-color-palette">
+        <div className="forge-color-palette flex flex-col gap-0.5">
             {colors.map((row, i) => (
                 <div
                     key={i}
-                    className="forge-color-row">
+                    className="forge-color-row flex gap-0.5">
                     {row.map((color) => (
                         <button
                             key={color}
                             type="button"
-                            className="forge-color-button"
+                            className="forge-color-button h-5 w-5 cursor-pointer rounded-[2px] border border-[#ccc] p-0 hover:scale-110 hover:border-black"
                             style={{ backgroundColor: color }}
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={() => onApply(event, color)}

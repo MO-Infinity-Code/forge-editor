@@ -1,7 +1,6 @@
 import { render } from "preact"
 import "../shared/toolbar/Index/index.css"
 import "../shared/toolbar/Style/Components/style.css"
-import "../shared/toolbar/Color/Components/color.css"
 import "../shared/toolbar/Insert/Components/insert.css"
 import "../shared/toolbar/ImagePopover/Components/imagePopover.css"
 import "../shared/toolbar/Paragraph/Components/paragraph.css"
