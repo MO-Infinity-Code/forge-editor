@@ -1,22 +1,33 @@
 import { bindDropdownToggle } from "../../Hooks/dropdown.js"
 
 export function applyStyleToolbarLogic(toolbarElement) {
+    if (!toolbarElement) return
+
     const button = toolbarElement.querySelector("[data-command='style']")
     const dropdown = toolbarElement.querySelector(".forge-dropdown-style")
-    if (!button || !dropdown) {
-        console.warn("Style toolbar elements not found", toolbarElement)
-        return
-    }
+
+    if (!button || !dropdown) return
+
     bindDropdownToggle(button, dropdown)
+
     const items = dropdown.querySelectorAll(".forge-dropdown-item")
     items.forEach((item) => {
-        item.addEventListener("click", (e) => {
+        item.addEventListener("mousedown", (e) => {
             e.preventDefault()
-            const value = item.dataset.value
+            e.stopPropagation()
+
+            const value = item.dataset.value || item.getAttribute("data-value")
+
             if (value) {
-                document.execCommand("formatBlock", false, value)
+                if (value === "p") {
+                    document.execCommand("formatBlock", false, "<p>")
+                } else {
+                    document.execCommand("formatBlock", false, value)
+                }
             }
-            dropdown.classList.remove("open")
+
+            dropdown.classList.remove("is-open")
+            button.classList.remove("is-active")
         })
     })
 }

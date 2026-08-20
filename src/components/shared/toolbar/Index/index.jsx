@@ -10,16 +10,16 @@ import { CreateViewToolbar } from "../View/Components"
 export function Toolbar() {
     return (
         <div
-            className="forge-editor__toolbar relative m-0 flex flex-shrink-0 flex-wrap items-center gap-1 rounded-t-[3px] border-b border-[#ddd] bg-[#f5f5f5] p-[5px] text-[#333]"
+            className="forge-editor__toolbar sticky top-0 z-10 m-0 flex flex-shrink-0 flex-wrap items-center gap-[4px] rounded-t-[3px] border-b border-[#ddd] bg-[#f5f5f5] p-[5px] text-[#333]"
             role="toolbar">
             <CreateStyleToolbar />
-            <CreateFontToolbar />
+            {/* <CreateFontToolbar />
             <CreateFontNameToolbar />
             <CreateColorToolbar />
             <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
-            <CreateViewToolbar />
+            <CreateViewToolbar /> */}
         </div>
     )
 }

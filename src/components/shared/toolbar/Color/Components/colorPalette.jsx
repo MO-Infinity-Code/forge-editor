@@ -9,24 +9,31 @@ const colors = [
     ["#630000", "#7B3900", "#846300", "#295218", "#083139", "#003163", "#21104A", "#4A1031"]
 ]
 
-export function ColorPalette({ event, onApply }) {
+export function ColorPalette({ event, onApply, currentColor }) {
     return (
         <div className="forge-color-palette flex flex-col gap-0.5">
             {colors.map((row, i) => (
                 <div
                     key={i}
                     className="forge-color-row flex gap-0.5">
-                    {row.map((color) => (
-                        <button
-                            key={color}
-                            type="button"
-                            className="forge-color-button h-5 w-5 cursor-pointer rounded-[2px] border border-[#ccc] p-0 hover:scale-110 hover:border-black"
-                            style={{ backgroundColor: color }}
-                            onMouseDown={(e) => e.preventDefault()}
-                            onClick={() => onApply(event, color)}
-                            aria-label={color}
-                        />
-                    ))}
+                    {row.map((color) => {
+                        const isSelected = currentColor?.toLowerCase() === color.toLowerCase()
+                        return (
+                            <button
+                                key={color}
+                                type="button"
+                                title={color}
+                                className={`forge-color-button h-5 w-5 cursor-pointer rounded-[2px] border p-0 hover:scale-110 hover:border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-blue-500 ${
+                                    isSelected ? "border-2 border-black" : "border-[#ccc]"
+                                }`}
+                                style={{ backgroundColor: color }}
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => onApply(event, color)}
+                                aria-label={color}
+                                aria-pressed={isSelected}
+                            />
+                        )
+                    })}
                 </div>
             ))}
         </div>

@@ -6,7 +6,7 @@ export function bindDropdownToggle(button, dropdown) {
     }
 
     function onDocumentClick(e) {
-        if (!dropdown.contains(e.target) && e.target !== button) {
+        if (!dropdown.contains(e.target) && !button.contains(e.target)) {
             closeDropdown()
         }
     }
