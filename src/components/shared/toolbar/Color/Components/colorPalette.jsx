@@ -11,11 +11,11 @@ const colors = [
 
 export function ColorPalette({ event, onApply, currentColor }) {
     return (
-        <div className="forge-color-palette flex flex-col gap-0.5">
+        <div className="forge-color-palette flex flex-col gap-1">
             {colors.map((row, i) => (
                 <div
                     key={i}
-                    className="forge-color-row flex gap-0.5">
+                    className="forge-color-row flex gap-1 justify-between">
                     {row.map((color) => {
                         const isSelected = currentColor?.toLowerCase() === color.toLowerCase()
                         return (
@@ -23,7 +23,7 @@ export function ColorPalette({ event, onApply, currentColor }) {
                                 key={color}
                                 type="button"
                                 title={color}
-                                className={`forge-color-button h-5 w-5 cursor-pointer rounded-[2px] border p-0 hover:scale-110 hover:border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-blue-500 ${
+                                className={`forge-color-button h-4 w-4 cursor-pointer rounded-[2px] border p-0 hover:scale-110 hover:border-black transition-transform ${
                                     isSelected ? "border-2 border-black" : "border-[#ccc]"
                                 }`}
                                 style={{ backgroundColor: color }}

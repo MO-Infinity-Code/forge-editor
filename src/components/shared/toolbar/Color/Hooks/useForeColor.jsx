@@ -1,5 +1,6 @@
 import { useState, useRef } from "preact/hooks"
 import { usePenMode } from "./usePenMode"
+import { handleForeColor } from "./foreColorHandler"
 
 export function useForeColor(targetClassName = "forge-editor__content") {
     const [recentForeColor, setRecentForeColor] = useState("#000000")
@@ -8,16 +9,16 @@ export function useForeColor(targetClassName = "forge-editor__content") {
     usePenMode(activeForeColorRef, targetClassName)
 
     const applyForeColor = (value) => {
-        const sel = window.getSelection()
-        const hasSelection = sel && sel.rangeCount && !sel.getRangeAt(0).collapsed
+        const targetColor = value || "#000000"
+        const selection = window.getSelection()
 
-        if (hasSelection) {
-            document.execCommand("styleWithCSS", false, true)
-            document.execCommand("foreColor", false, value)
+        if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0)
+            handleForeColor(range, selection, targetColor)
         }
 
-        activeForeColorRef.current = value
-        setRecentForeColor(value)
+        activeForeColorRef.current = targetColor
+        setRecentForeColor(targetColor)
     }
 
     const applyRecentForeColor = () => {
@@ -25,10 +26,8 @@ export function useForeColor(targetClassName = "forge-editor__content") {
     }
 
     const resetForeColor = () => {
-        document.execCommand("styleWithCSS", false, true)
-        document.execCommand("removeFormat", false, null)
+        applyForeColor("#000000")
         activeForeColorRef.current = null
-        setRecentForeColor("#000000")
     }
 
     return {

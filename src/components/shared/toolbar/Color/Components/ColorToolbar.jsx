@@ -26,90 +26,76 @@ export function ColorToolbar({ logic }) {
 
     const handleForeColorSelect = (event, value) => {
         applyColor(event, value)
-        if (foreDropdownRef.current) {
-            foreDropdownRef.current.classList.remove("is-open")
-        }
-        if (foreDropdownBtnRef.current) {
-            foreDropdownBtnRef.current.classList.remove("is-active")
-        }
+        if (foreDropdownRef.current) foreDropdownRef.current.classList.remove("is-open")
+        if (foreDropdownBtnRef.current) foreDropdownBtnRef.current.classList.remove("is-active")
     }
 
     const handleBackColorSelect = (event, value) => {
         applyColor(event, value)
-        if (backDropdownRef.current) {
-            backDropdownRef.current.classList.remove("is-open")
-        }
-        if (backDropdownBtnRef.current) {
-            backDropdownBtnRef.current.classList.remove("is-active")
-        }
+        if (backDropdownRef.current) backDropdownRef.current.classList.remove("is-open")
+        if (backDropdownBtnRef.current) backDropdownBtnRef.current.classList.remove("is-active")
     }
 
     const handleForeReset = () => {
         resetColor("foreColor")
-        if (foreDropdownRef.current) {
-            foreDropdownRef.current.classList.remove("is-open")
-        }
-        if (foreDropdownBtnRef.current) {
-            foreDropdownBtnRef.current.classList.remove("is-active")
-        }
+        if (foreDropdownRef.current) foreDropdownRef.current.classList.remove("is-open")
+        if (foreDropdownBtnRef.current) foreDropdownBtnRef.current.classList.remove("is-active")
     }
 
     const handleBackReset = () => {
         resetColor("backColor")
-        if (backDropdownRef.current) {
-            backDropdownRef.current.classList.remove("is-open")
-        }
-        if (backDropdownBtnRef.current) {
-            backDropdownBtnRef.current.classList.remove("is-active")
-        }
+        if (backDropdownRef.current) backDropdownRef.current.classList.remove("is-open")
+        if (backDropdownBtnRef.current) backDropdownBtnRef.current.classList.remove("is-active")
     }
 
     return (
         <div className="forge-toolbar-group forge-toolbar-color flex items-center gap-1">
-            <div className="forge-color-item relative z-10 flex items-center">
-                <div className="forge-color-button-group flex h-7 items-center overflow-visible rounded-[2px] border border-[#ccc] bg-transparent hover:border-[#aaa] hover:bg-black/5">
+            <div className="forge-color-item relative flex items-center">
+                <div className="forge-color-button-group flex h-[30px] items-center overflow-visible rounded border border-[#ccc] bg-white hover:border-[#aaa] hover:bg-[#f9f9f9]">
                     <button
                         type="button"
-                        className="forge-color-main forge-toolbar-button min-w-[28px] cursor-pointer border-none bg-transparent p-0 text-sm hover:bg-black/[0.08]"
+                        className="forge-color-main group relative flex h-full items-center justify-center min-w-[28px] cursor-pointer border-none bg-transparent p-0 hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => applyRecentColor("foreColor")}
                         aria-label="Apply text color">
                         <span
-                            className="forge-recent-color flex h-5 w-5 shrink-0 items-center justify-center rounded-[2px] border border-[#ccc] text-sm font-bold"
+                            className="forge-recent-color flex h-5 w-5 items-center justify-center rounded-[2px] border border-[#ccc] text-xs font-bold"
                             style={{ backgroundColor: "transparent", color: recentForeColor }}>
                             A
                         </span>
                         <span
-                            className="forge-tooltip py-0.5 px-[7px]"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
                             data-i18n="recentColor">
                             Recent Color
                         </span>
                     </button>
+
                     <button
                         ref={foreDropdownBtnRef}
                         type="button"
-                        className="forge-color-dropdown-btn forge-toolbar-button min-w-[18px] cursor-pointer border-l border-[#ccc] border-none bg-transparent px-1 py-0 text-[10px] text-[#666] hover:bg-black/[0.08]"
+                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 text-[8px] text-[#666] hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         aria-label="More text colors">
                         ▼
                         <span
-                            className="forge-tooltip py-0.5 px-[7px]"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
                             data-i18n="moreColor">
                             More Color
                         </span>
                     </button>
                 </div>
+
                 <div
                     ref={foreDropdownRef}
-                    className="forge-toolbar-dropdown forge-dropdown-color mt-1 max-h-[200px] min-w-[160px] overflow-y-auto rounded-[3px] p-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.15)] rtl:left-auto rtl:right-0">
-                    <div className="forge-color-section mb-1.5 last:mb-0">
-                        <div className="forge-color-section-header mb-1 flex items-center justify-between">
+                    className="forge-toolbar-dropdown forge-dropdown-color absolute left-0 top-full z-20 hidden mt-1 max-h-[220px] min-w-[180px] overflow-y-auto rounded border border-[#ccc] bg-white p-2 shadow-md rtl:left-auto rtl:right-0 [&.is-open]:block">
+                    <div className="forge-color-section">
+                        <div className="forge-color-section-header mb-1.5 flex items-center justify-between">
                             <span className="forge-color-title text-xs font-bold text-[#333]">
                                 Text Color
                             </span>
                             <button
                                 type="button"
-                                className="forge-color-reset cursor-pointer rounded-[2px] border border-[#ccc] bg-[#f5f5f5] px-2 py-0.5 text-[11px] font-medium text-[#333] transition-all duration-150 ease-in-out hover:border-[#999] hover:bg-[#e6e6e6] active:translate-y-px active:border-[#666] active:bg-[#d0d0d0]"
+                                className="forge-color-reset cursor-pointer rounded border border-[#ccc] bg-[#f5f5f5] px-2 py-0.5 text-[11px] font-medium text-[#333] hover:border-[#999] hover:bg-[#e6e6e6]"
                                 onMouseDown={(e) => e.preventDefault()}
                                 onClick={handleForeReset}>
                                 Reset
@@ -123,53 +109,58 @@ export function ColorToolbar({ logic }) {
                 </div>
             </div>
 
-            <div className="forge-color-item relative z-10 flex items-center">
-                <div className="forge-color-button-group flex h-7 items-center overflow-visible rounded-[2px] border border-[#ccc] bg-transparent hover:border-[#aaa] hover:bg-black/5">
+            <div className="forge-color-item relative flex items-center">
+                <div className="forge-color-button-group flex h-[30px] items-center overflow-visible rounded border border-[#ccc] bg-white hover:border-[#aaa] hover:bg-[#f9f9f9]">
                     <button
                         type="button"
-                        className="forge-color-main forge-toolbar-button min-w-[28px] cursor-pointer border-none bg-transparent p-0 text-sm hover:bg-black/[0.08]"
+                        className="forge-color-main group relative flex h-full items-center justify-center min-w-[28px] cursor-pointer border-none bg-transparent p-0 hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => applyRecentColor("backColor")}
                         aria-label="Apply background color">
                         <span
-                            className="forge-recent-color flex h-5 w-5 shrink-0 items-center justify-center rounded-[2px] border border-[#ccc] text-sm font-bold"
-                            style={{ backgroundColor: recentBackColor, color: "#000" }}>
+                            className="forge-recent-color flex h-5 w-5 items-center justify-center rounded-[2px] border border-[#ccc] text-xs font-bold"
+                            style={{
+                                backgroundColor: recentBackColor || "#FFFFFF",
+                                color: "#000"
+                            }}>
                             A
                         </span>
                         <span
-                            className="forge-tooltip py-0.5 px-[7px]"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
                             data-i18n="recentBackColor">
                             Recent Background Color
                         </span>
                     </button>
+
                     <button
                         ref={backDropdownBtnRef}
                         type="button"
-                        className="forge-color-dropdown-btn forge-toolbar-button min-w-[18px] cursor-pointer border-l border-[#ccc] border-none bg-transparent px-1 py-0 text-[10px] text-[#666] hover:bg-black/[0.08]"
+                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 text-[8px] text-[#666] hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         aria-label="More background colors">
                         ▼
                         <span
-                            className="forge-tooltip py-0.5 px-[7px]"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
                             data-i18n="moreBackColor">
                             More Background Colors
                         </span>
                     </button>
                 </div>
+
                 <div
                     ref={backDropdownRef}
-                    className="forge-toolbar-dropdown forge-dropdown-color mt-1 max-h-[200px] min-w-[160px] overflow-y-auto rounded-[3px] p-1.5 shadow-[0_2px_6px_rgba(0,0,0,0.15)] rtl:left-auto rtl:right-0">
-                    <div className="forge-color-section mb-1.5 last:mb-0">
-                        <div className="forge-color-section-header mb-1 flex items-center justify-between">
+                    className="forge-toolbar-dropdown forge-dropdown-color absolute left-0 top-full z-20 hidden mt-1 max-h-[220px] min-w-[180px] overflow-y-auto rounded border border-[#ccc] bg-white p-2 shadow-md rtl:left-auto rtl:right-0 [&.is-open]:block">
+                    <div className="forge-color-section">
+                        <div className="forge-color-section-header mb-1.5 flex items-center justify-between">
                             <span className="forge-color-title text-xs font-bold text-[#333]">
                                 Background Color
                             </span>
                             <button
                                 type="button"
-                                className="forge-color-reset cursor-pointer rounded-[2px] border border-[#ccc] bg-[#f5f5f5] px-2 py-0.5 text-[11px] font-medium text-[#333] transition-all duration-150 ease-in-out hover:border-[#999] hover:bg-[#e6e6e6] active:translate-y-px active:border-[#666] active:bg-[#d0d0d0]"
+                                className="forge-color-reset cursor-pointer rounded border border-[#ccc] bg-[#f5f5f5] px-2 py-0.5 text-[11px] font-medium text-[#333] hover:border-[#999] hover:bg-[#e6e6e6]"
                                 onMouseDown={(e) => e.preventDefault()}
                                 onClick={handleBackReset}>
-                                Transparent
+                                White
                             </button>
                         </div>
                         <ColorPalette

@@ -15,8 +15,8 @@ export function Toolbar() {
             <CreateStyleToolbar />
             <CreateFontToolbar />
             <CreateFontNameToolbar />
-            {/* <CreateColorToolbar />
-            <CreateParagraphToolbar />
+            <CreateColorToolbar />
+            {/* <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
             <CreateViewToolbar /> */}
