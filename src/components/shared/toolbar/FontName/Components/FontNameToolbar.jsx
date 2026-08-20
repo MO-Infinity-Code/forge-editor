@@ -38,24 +38,19 @@ export function FontNameToolbar({ logic }) {
     }
 
     return (
-        <div className="forge-toolbar-group forge-toolbar-fontname relative">
-            <style>{`
-        .forge-toolbar-dropdown.forge-dropdown-fontname {
-          display: none !important;
-        }
-        .forge-toolbar-dropdown.forge-dropdown-fontname.is-open {
-          display: block !important;
-        }
-      `}</style>
-
+        <div className="forge-toolbar-group forge-toolbar-fontname relative flex items-center">
             <button
                 ref={dropdownBtnRef}
                 type="button"
-                className="forge-toolbar-button forge-fontname-button min-w-[80px] text-left"
+                className="forge-toolbar-button forge-fontname-button group relative flex h-[30px] items-center justify-between gap-2 rounded border border-[#ccc] bg-white px-2.5 text-xs hover:border-[#aaa] hover:bg-[#f9f9f9]"
                 aria-label="Font Family">
-                <span className="forge-current-fontname">{currentFont}</span>
+                <span className="forge-current-fontname truncate max-w-[80px]">
+                    {currentFont || "Arial"}
+                </span>
+                <span className="text-[8px] opacity-60">▼</span>
+
                 <span
-                    className="forge-tooltip"
+                    className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
                     data-i18n="fontFamily">
                     Font Family
                 </span>
@@ -63,23 +58,22 @@ export function FontNameToolbar({ logic }) {
 
             <div
                 ref={dropdownRef}
-                className="forge-toolbar-dropdown forge-dropdown-fontname absolute left-0 top-full z-10 max-h-[100px] min-w-[120px] overflow-y-auto overflow-x-hidden border border-[#ccc] bg-white p-0 rtl:left-auto rtl:right-0"
+                className="forge-toolbar-dropdown forge-dropdown-fontname absolute left-0 top-full z-20 hidden max-h-[180px] w-[140px] overflow-y-auto rounded border border-[#ccc] bg-white p-0 shadow-md rtl:left-auto rtl:right-0 [&.is-open]:block"
                 role="list"
                 aria-label="Font Family">
                 {FONTS.map((font) => (
-                    <a
+                    <button
                         key={font}
-                        className="forge-dropdown-item box-border block h-[30px] whitespace-nowrap border-b border-[#f0f0f0] px-3 py-2 leading-[14px] text-[#333] no-underline last:border-b-0"
-                        href="#"
-                        data-value={font}
+                        type="button"
+                        className="forge-dropdown-item block w-full text-left px-3 py-1.5 text-xs text-[#333] hover:bg-[#007bff] hover:text-white transition-colors cursor-pointer"
                         role="listitem"
                         style={{ fontFamily: font }}
-                        onClick={(e) => {
+                        onMouseDown={(e) => {
                             e.preventDefault()
                             handleFontSelect(font)
                         }}>
                         {font}
-                    </a>
+                    </button>
                 ))}
             </div>
         </div>

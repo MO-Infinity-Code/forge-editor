@@ -14,8 +14,8 @@ export function Toolbar() {
             role="toolbar">
             <CreateStyleToolbar />
             <CreateFontToolbar />
-            {/* <CreateFontNameToolbar />
-            <CreateColorToolbar />
+            <CreateFontNameToolbar />
+            {/* <CreateColorToolbar />
             <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
