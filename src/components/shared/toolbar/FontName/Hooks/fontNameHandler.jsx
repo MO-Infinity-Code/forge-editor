@@ -1,13 +1,19 @@
 export const handleFontName = (range, selection, fontName) => {
     const targetFont = fontName || "Arial"
-    if (!range) return
+
+    if (!range || !selection) return
 
     if (!range.collapsed) {
-        const selectedText = range.extractContents()
         const span = document.createElement("span")
         span.style.fontFamily = targetFont
-        span.appendChild(selectedText)
-        range.insertNode(span)
+
+        try {
+            span.appendChild(range.extractContents())
+            range.insertNode(span)
+        } catch (e) {
+            document.execCommand("fontName", false, targetFont)
+            return
+        }
 
         const newRange = document.createRange()
         newRange.selectNodeContents(span)
@@ -16,10 +22,11 @@ export const handleFontName = (range, selection, fontName) => {
         return
     }
 
-    const zeroWidthSpace = "\u200B"
     const span = document.createElement("span")
     span.style.fontFamily = targetFont
-    span.appendChild(document.createTextNode(zeroWidthSpace))
+    const zeroWidthSpace = document.createTextNode("\u200B")
+    span.appendChild(zeroWidthSpace)
+
     range.insertNode(span)
 
     const newRange = document.createRange()
@@ -42,13 +49,17 @@ export const getActiveFontName = (editorElement) => {
 
     if (node.nodeType === 3) node = node.parentNode
 
-    while (node && node.getAttribute && node.getAttribute("contenteditable") !== "true") {
-        const fontFamily = node.style?.fontFamily || window.getComputedStyle(node).fontFamily
-        if (fontFamily) {
-            const cleanFont = fontFamily.split(",")[0].replace(/['"]/g, "").trim()
+    while (node && node !== editorElement) {
+        if (node.style && node.style.fontFamily) {
+            const cleanFont = node.style.fontFamily.split(",")[0].replace(/['"]/g, "").trim()
             if (cleanFont) return cleanFont
         }
         node = node.parentNode
+    }
+
+    const computedFont = window.getComputedStyle(editorElement).fontFamily
+    if (computedFont) {
+        return computedFont.split(",")[0].replace(/['"]/g, "").trim()
     }
 
     return null

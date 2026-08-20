@@ -30,12 +30,14 @@ export function createLightEditor(options) {
     const lang = options.lang || "en"
     const dir = options.dir || "ltr"
 
+    const editorRef = { current: null }
+
     const vnode = (
         <div
             className="forge-editor forge-editor--light flex flex-col w-full rounded-[3px] border border-[#ddd] bg-white box-border align-top min-h-[120px]"
             lang={lang}
             dir={dir}>
-            <Toolbar />
+            <Toolbar editorRef={editorRef} />
             <div
                 className="forge-editor__content flex-1 min-h-[60px] overflow-auto p-[10px] pb-12 outline-none box-border [&_blockquote]:my-2 [&_blockquote]:border-l-4 [&_blockquote]:border-[#ccc] [&_blockquote]:pl-4 [&_blockquote]:italic [&_pre]:bg-[#f4f4f4] [&_pre]:p-2 [&_pre]:rounded [&_h1]:text-2xl [&_h1]:font-bold [&_h2]:text-xl [&_h2]:font-bold [&_h3]:text-lg [&_h3]:font-bold"
                 contentEditable="true"
@@ -51,6 +53,8 @@ export function createLightEditor(options) {
 
     const element = container.firstElementChild
     const contentElement = element.querySelector(".forge-editor__content")
+
+    editorRef.current = contentElement
 
     ensureParagraph(contentElement)
     handleContentClick(contentElement)
