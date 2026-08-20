@@ -48,8 +48,19 @@ export function ColorToolbar({ logic }) {
         if (backDropdownBtnRef.current) backDropdownBtnRef.current.classList.remove("is-active")
     }
 
+    // سهم الـ Dropdown (SVG)
+    const ArrowIcon = () => (
+        <svg
+            className="h-2 w-2 fill-current text-[#666]"
+            viewBox="0 0 10 6"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0l5 6 5-6H0z" />
+        </svg>
+    )
+
     return (
         <div className="forge-toolbar-group forge-toolbar-color flex items-center gap-1">
+            {/* Text Color */}
             <div className="forge-color-item relative flex items-center">
                 <div className="forge-color-button-group flex h-[30px] items-center overflow-visible rounded border border-[#ccc] bg-white hover:border-[#aaa] hover:bg-[#f9f9f9]">
                     <button
@@ -64,7 +75,7 @@ export function ColorToolbar({ logic }) {
                             A
                         </span>
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
                             data-i18n="recentColor">
                             Recent Color
                         </span>
@@ -73,12 +84,12 @@ export function ColorToolbar({ logic }) {
                     <button
                         ref={foreDropdownBtnRef}
                         type="button"
-                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 text-[8px] text-[#666] hover:bg-black/5"
+                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         aria-label="More text colors">
-                        ▼
+                        <ArrowIcon />
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
                             data-i18n="moreColor">
                             More Color
                         </span>
@@ -109,6 +120,7 @@ export function ColorToolbar({ logic }) {
                 </div>
             </div>
 
+            {/* Background Color */}
             <div className="forge-color-item relative flex items-center">
                 <div className="forge-color-button-group flex h-[30px] items-center overflow-visible rounded border border-[#ccc] bg-white hover:border-[#aaa] hover:bg-[#f9f9f9]">
                     <button
@@ -126,7 +138,7 @@ export function ColorToolbar({ logic }) {
                             A
                         </span>
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
                             data-i18n="recentBackColor">
                             Recent Background Color
                         </span>
@@ -135,12 +147,12 @@ export function ColorToolbar({ logic }) {
                     <button
                         ref={backDropdownBtnRef}
                         type="button"
-                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 text-[8px] text-[#666] hover:bg-black/5"
+                        className="forge-color-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 hover:bg-black/5"
                         onMouseDown={(e) => e.preventDefault()}
                         aria-label="More background colors">
-                        ▼
+                        <ArrowIcon />
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
                             data-i18n="moreBackColor">
                             More Background Colors
                         </span>
