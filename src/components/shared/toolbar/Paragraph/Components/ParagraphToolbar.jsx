@@ -1,7 +1,14 @@
 import { useRef, useEffect, useState } from "preact/hooks"
 
 export function ParagraphToolbar({ logic = {} }) {
-    const { saveSelectionRange, toggleUnorderedList, toggleOrderedList, setAlignment } = logic
+    const {
+        saveSelectionRange,
+        toggleUnorderedList,
+        toggleOrderedList,
+        setAlignment,
+        outdent,
+        indent
+    } = logic
 
     const [isOpen, setIsOpen] = useState(false)
     const containerRef = useRef(null)
@@ -368,6 +375,88 @@ export function ParagraphToolbar({ logic = {} }) {
                                         rx="1"
                                         fill="black"
                                     />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div className="forge-toolbar-group forge-toolbar-list flex gap-0.5 py-0.5">
+                        <button
+                            type="button"
+                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            onMouseDown={(e) => {
+                                handleAction(e, outdent)
+                                setIsOpen(false)
+                            }}
+                            aria-label="Outdent">
+                            <span className={iconClass}>
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    className="block h-4 w-4"
+                                    fill="none"
+                                    stroke="black"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round">
+                                    <line
+                                        x1="9"
+                                        y1="4"
+                                        x2="19"
+                                        y2="4"
+                                    />
+                                    <line
+                                        x1="9"
+                                        y1="10"
+                                        x2="19"
+                                        y2="10"
+                                    />
+                                    <line
+                                        x1="9"
+                                        y1="16"
+                                        x2="19"
+                                        y2="16"
+                                    />
+                                    <polyline points="6,8 2,12 6,16" />
+                                </svg>
+                            </span>
+                        </button>
+
+                        <button
+                            type="button"
+                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            onMouseDown={(e) => {
+                                handleAction(e, indent)
+                                setIsOpen(false)
+                            }}
+                            aria-label="Indent">
+                            <span className={iconClass}>
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    className="block h-4 w-4"
+                                    fill="none"
+                                    stroke="black"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round">
+                                    <line
+                                        x1="9"
+                                        y1="4"
+                                        x2="19"
+                                        y2="4"
+                                    />
+                                    <line
+                                        x1="9"
+                                        y1="10"
+                                        x2="19"
+                                        y2="10"
+                                    />
+                                    <line
+                                        x1="9"
+                                        y1="16"
+                                        x2="19"
+                                        y2="16"
+                                    />
+                                    <polyline points="2,8 6,12 2,16" />
                                 </svg>
                             </span>
                         </button>
