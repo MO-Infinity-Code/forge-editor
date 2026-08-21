@@ -25,17 +25,22 @@ function placeCaretAtEnd(el) {
     }
 
     let deepest = el
-    while (deepest.lastChild) {
+    while (deepest.lastChild && deepest.lastChild.nodeName !== "BR") {
         deepest = deepest.lastChild
     }
 
     const range = document.createRange()
+
     if (deepest.nodeType === 3) {
         range.setStart(deepest, deepest.textContent.length)
+        range.collapse(true)
+    } else if (deepest.lastChild && deepest.lastChild.nodeName === "BR") {
+        range.setStart(deepest, deepest.childNodes.length - 1)
+        range.collapse(true)
     } else {
         range.selectNodeContents(deepest)
+        range.collapse(false)
     }
-    range.collapse(false)
 
     const sel = window.getSelection()
     if (sel) {
@@ -71,6 +76,7 @@ export function useParagraphToolbar() {
                     const div = document.createElement("div")
                     div.innerHTML = li.innerHTML
                     parent.insertBefore(div, currentList)
+                    currentList.removeChild(li)
                     lastDiv = div
                 }
                 currentList.remove()
