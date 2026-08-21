@@ -31,7 +31,6 @@
     "dependencies": {
         "@tailwindcss/vite": "^4.3.3",
         "preact": "^10.29.8",
-        "sweetalert2": "^11.26.25",
-        "tailwindcss": "^4.3.3"
+        "sweetalert2": "^11.26.25"
     }
 }
