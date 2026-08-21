@@ -26,34 +26,40 @@ function insertHTML(html) {
         setTimeout(() => insertHTML(html), 50)
         return
     }
+
     const range = sel.getRangeAt(0)
-    if (range.collapsed) {
-        const fragment = range.createContextualFragment(html)
-        range.insertNode(fragment)
-        const lastChild = fragment.lastChild
-        if (lastChild) {
-            range.setStartAfter(lastChild)
-            range.collapse(true)
-        } else {
-            range.collapse(false)
-        }
-        sel.removeAllRanges()
-        sel.addRange(range)
+    range.deleteContents()
+
+    const fragment = range.createContextualFragment(html)
+    const lastChild = fragment.lastChild
+    range.insertNode(fragment)
+
+    if (lastChild) {
+        range.setStartAfter(lastChild)
+        range.collapse(true)
     } else {
-        document.execCommand("insertHTML", false, html)
+        range.collapse(false)
     }
+
+    sel.removeAllRanges()
+    sel.addRange(range)
 }
 
 export function useTableToolbar() {
     const insertTable = (rows, cols) => {
-        let html = '<table style="width:100%;border-collapse:collapse;border:1px solid #ddd;">'
+        const colWidth = (100 / cols).toFixed(2) + "%"
+
+        let html =
+            '<table style="width:100%;table-layout:fixed;border-collapse:collapse;border:1px solid #ddd;">'
+
         for (let r = 0; r < rows; r++) {
             html += "<tr>"
             for (let c = 0; c < cols; c++) {
-                html += '<td style="border:1px solid #ddd;padding:8px;"><br></td>'
+                html += `<td style="border:1px solid #ddd;padding:8px;width:${colWidth};text-align:center;vertical-align:middle;overflow:hidden;word-break:break-word;"><br></td>`
             }
             html += "</tr>"
         }
+
         html += "</table><br>"
         focusEditor()
         insertHTML(html)

@@ -17,8 +17,8 @@ export function Toolbar({ editorRef }) {
             <CreateFontNameToolbar editorRef={editorRef} />
             <CreateColorToolbar />
             <CreateParagraphToolbar />
-            {/* <CreateTableToolbar />
-                <CreateInsertToolbar />
+            <CreateTableToolbar />
+            {/* <CreateInsertToolbar />
                 <CreateViewToolbar /> */}
         </div>
     )
