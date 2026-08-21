@@ -14,11 +14,12 @@ export function Toolbar({ editorRef }) {
             role="toolbar">
             <CreateStyleToolbar />
             <CreateFontToolbar />
-            <CreateFontNameToolbar editorRef={editorRef} /> <CreateColorToolbar />
-            {/* <CreateParagraphToolbar />
-            <CreateTableToolbar />
-            <CreateInsertToolbar />
-            <CreateViewToolbar /> */}
+            <CreateFontNameToolbar editorRef={editorRef} />
+            <CreateColorToolbar />
+            <CreateParagraphToolbar />
+            {/* <CreateTableToolbar />
+                <CreateInsertToolbar />
+                <CreateViewToolbar /> */}
         </div>
     )
 }

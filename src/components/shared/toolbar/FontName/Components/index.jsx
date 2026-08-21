@@ -1,7 +1,13 @@
-import { FontNameToolbar } from "./FontNameToolbar"
 import { useFontNameToolbar } from "../Hooks/fontNameLogic"
+import { FontNameToolbar } from "./FontNameToolbar"
 
 export function CreateFontNameToolbar({ editorRef }) {
-    const logic = useFontNameToolbar(editorRef)
-    return <FontNameToolbar logic={logic} />
+    const { currentFont, applyFont } = useFontNameToolbar(editorRef)
+
+    return (
+        <FontNameToolbar
+            currentFont={currentFont}
+            applyFont={applyFont}
+        />
+    )
 }

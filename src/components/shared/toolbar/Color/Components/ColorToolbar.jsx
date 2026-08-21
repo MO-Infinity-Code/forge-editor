@@ -48,7 +48,9 @@ export function ColorToolbar({ logic }) {
         if (backDropdownBtnRef.current) backDropdownBtnRef.current.classList.remove("is-active")
     }
 
-    // سهم الـ Dropdown (SVG)
+    const tooltipClass =
+        "pointer-events-none absolute left-1/2 top-[calc(100%+8px)] z-30 -translate-x-1/2 whitespace-nowrap rounded-md border border-[#2c2c2c] bg-[#1e1e1e] px-2.5 py-1 text-[11px] font-medium leading-none text-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100 group-has-[.is-open]:hidden rtl:left-1/2 rtl:-translate-x-1/2 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[5px] before:border-b-[5px] before:border-t-0 before:border-solid before:border-x-transparent before:border-b-[#2c2c2c] after:absolute after:bottom-full after:left-1/2 after:-translate-x-1/2 after:translate-y-[1px] after:border-x-[4px] after:border-b-[4px] after:border-t-0 after:border-solid after:border-x-transparent after:border-b-[#1e1e1e]"
+
     const ArrowIcon = () => (
         <svg
             className="h-2 w-2 fill-current text-[#666]"
@@ -75,7 +77,7 @@ export function ColorToolbar({ logic }) {
                             A
                         </span>
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
+                            className={tooltipClass}
                             data-i18n="recentColor">
                             Recent Color
                         </span>
@@ -89,7 +91,7 @@ export function ColorToolbar({ logic }) {
                         aria-label="More text colors">
                         <ArrowIcon />
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
+                            className={tooltipClass}
                             data-i18n="moreColor">
                             More Color
                         </span>
@@ -138,7 +140,7 @@ export function ColorToolbar({ logic }) {
                             A
                         </span>
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
+                            className={tooltipClass}
                             data-i18n="recentBackColor">
                             Recent Background Color
                         </span>
@@ -152,7 +154,7 @@ export function ColorToolbar({ logic }) {
                         aria-label="More background colors">
                         <ArrowIcon />
                         <span
-                            className="forge-tooltip pointer-events-none absolute left-1/2 top-full z-30 mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[4px] before:border-b-[4px] before:border-x-transparent before:border-b-black"
+                            className={tooltipClass}
                             data-i18n="moreBackColor">
                             More Background Colors
                         </span>
