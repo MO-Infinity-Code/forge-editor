@@ -36,9 +36,15 @@ export function ParagraphToolbar({ logic = {} }) {
     }
 
     const groupButtonClass =
-        "forge-toolbar-button relative flex h-8 items-center justify-center bg-white px-2.5 text-sm transition-all duration-150 hover:bg-[#f5f5f5] active:bg-[#e8e8e8] focus:outline-none"
+        "forge-toolbar-button group relative flex h-8 items-center justify-center bg-white px-2.5 text-sm transition-all duration-150 hover:bg-[#f5f5f5] active:bg-[#e8e8e8] focus:outline-none"
 
     const iconClass = "forge-toolbar-icon inline-block h-4 w-4"
+
+    const tooltipClass =
+        "pointer-events-none absolute left-1/2 top-[calc(100%+8px)] z-30 -translate-x-1/2 whitespace-nowrap rounded-md border border-[#2c2c2c] bg-[#1e1e1e] px-2.5 py-1 text-[11px] font-medium leading-none text-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100 rtl:left-1/2 rtl:-translate-x-1/2 before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:border-x-[5px] before:border-b-[5px] before:border-t-0 before:border-solid before:border-x-transparent before:border-b-[#2c2c2c] after:absolute after:bottom-full after:left-1/2 after:-translate-x-1/2 after:translate-y-[1px] after:border-x-[4px] after:border-b-[4px] after:border-t-0 after:border-solid after:border-x-transparent after:border-b-[#1e1e1e]"
+
+    const dropdownItemClass =
+        "group relative flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
 
     return (
         <div
@@ -48,12 +54,9 @@ export function ParagraphToolbar({ logic = {} }) {
                 .forge-toolbar-paragraph svg * {
                     vector-effect: non-scaling-stroke;
                 }
-                .forge-tooltip {
-                    display: none;
-                }
             `}</style>
 
-            <div className="inline-flex rounded-md border border-[#d1d5db] bg-white shadow-sm -space-x-px overflow-hidden">
+            <div className="inline-flex rounded-md border border-[#d1d5db] bg-white shadow-sm -space-x-px">
                 <button
                     type="button"
                     className={groupButtonClass}
@@ -106,6 +109,11 @@ export function ParagraphToolbar({ logic = {} }) {
                                 fill="black"
                             />
                         </svg>
+                    </span>
+                    <span
+                        className={tooltipClass}
+                        data-i18n="unorderedList">
+                        Bullet list
                     </span>
                 </button>
 
@@ -162,6 +170,11 @@ export function ParagraphToolbar({ logic = {} }) {
                             />
                         </svg>
                     </span>
+                    <span
+                        className={tooltipClass}
+                        data-i18n="orderedList">
+                        Numbered list
+                    </span>
                 </button>
 
                 <div className="w-[1px] bg-[#e5e7eb] my-1"></div>
@@ -210,6 +223,11 @@ export function ParagraphToolbar({ logic = {} }) {
                         viewBox="0 0 20 20">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                     </svg>
+                    <span
+                        className={tooltipClass}
+                        data-i18n="paragraph">
+                        Paragraph options
+                    </span>
                 </button>
             </div>
 
@@ -221,7 +239,7 @@ export function ParagraphToolbar({ logic = {} }) {
                     <div className="forge-toolbar-group forge-toolbar-align mb-0.5 flex gap-0.5 border-b border-[#eee] pb-1">
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, setAlignment, "left")
                                 setIsOpen(false)
@@ -257,11 +275,16 @@ export function ParagraphToolbar({ logic = {} }) {
                                     />
                                 </svg>
                             </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="alignLeft">
+                                Align left
+                            </span>
                         </button>
 
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, setAlignment, "center")
                                 setIsOpen(false)
@@ -297,11 +320,16 @@ export function ParagraphToolbar({ logic = {} }) {
                                     />
                                 </svg>
                             </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="alignCenter">
+                                Align center
+                            </span>
                         </button>
 
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, setAlignment, "right")
                                 setIsOpen(false)
@@ -337,11 +365,16 @@ export function ParagraphToolbar({ logic = {} }) {
                                     />
                                 </svg>
                             </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="alignRight">
+                                Align right
+                            </span>
                         </button>
 
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, setAlignment, "justify")
                                 setIsOpen(false)
@@ -377,13 +410,18 @@ export function ParagraphToolbar({ logic = {} }) {
                                     />
                                 </svg>
                             </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="justify">
+                                Justify
+                            </span>
                         </button>
                     </div>
 
                     <div className="forge-toolbar-group forge-toolbar-list flex gap-0.5 py-0.5">
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, outdent)
                                 setIsOpen(false)
@@ -419,11 +457,16 @@ export function ParagraphToolbar({ logic = {} }) {
                                     <polyline points="6,8 2,12 6,16" />
                                 </svg>
                             </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="outdent">
+                                Outdent
+                            </span>
                         </button>
 
                         <button
                             type="button"
-                            className="flex h-7 w-7 items-center justify-center rounded hover:bg-gray-100"
+                            className={dropdownItemClass}
                             onMouseDown={(e) => {
                                 handleAction(e, indent)
                                 setIsOpen(false)
@@ -458,6 +501,11 @@ export function ParagraphToolbar({ logic = {} }) {
                                     />
                                     <polyline points="2,8 6,12 2,16" />
                                 </svg>
+                            </span>
+                            <span
+                                className={tooltipClass}
+                                data-i18n="indent">
+                                Indent
                             </span>
                         </button>
                     </div>
