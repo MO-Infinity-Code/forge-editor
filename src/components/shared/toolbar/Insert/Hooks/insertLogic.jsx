@@ -45,22 +45,23 @@ function insertHTML(html) {
         setTimeout(() => insertHTML(html), 50)
         return
     }
+
     const range = sel.getRangeAt(0)
-    if (range.collapsed) {
-        const fragment = range.createContextualFragment(html)
-        range.insertNode(fragment)
-        const lastChild = fragment.lastChild
-        if (lastChild) {
-            range.setStartAfter(lastChild)
-            range.collapse(true)
-        } else {
-            range.collapse(false)
-        }
-        sel.removeAllRanges()
-        sel.addRange(range)
+    range.deleteContents()
+
+    const fragment = range.createContextualFragment(html)
+    const lastChild = fragment.lastChild
+    range.insertNode(fragment)
+
+    if (lastChild) {
+        range.setStartAfter(lastChild)
+        range.collapse(true)
     } else {
-        document.execCommand("insertHTML", false, html)
+        range.collapse(false)
     }
+
+    sel.removeAllRanges()
+    sel.addRange(range)
 }
 
 export function useInsertToolbar() {
@@ -86,8 +87,8 @@ export function useInsertToolbar() {
             const [url, text] = result.value
             const html =
                 text ?
-                    `<a href="${url}" target="_blank">${text}</a>`
-                :   `<a href="${url}" target="_blank">${url}</a>`
+                    `<a href="${url}" target="_blank" rel="noopener">${text}</a>`
+                :   `<a href="${url}" target="_blank" rel="noopener">${url}</a>`
             insertHTML(html)
         }
     }

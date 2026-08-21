@@ -54,8 +54,14 @@ export function useImagePopover() {
         if (direction === "none") {
             img.style.float = ""
             img.style.margin = ""
+            img.style.display = ""
+        } else if (direction === "center") {
+            img.style.float = "none"
+            img.style.display = "block"
+            img.style.margin = "0 auto"
         } else {
             img.style.float = direction
+            img.style.display = ""
             img.style.margin = direction === "left" ? "0 10px 5px 0" : "0 0 5px 10px"
         }
         setVisible(false)

@@ -18,8 +18,8 @@ export function Toolbar({ editorRef }) {
             <CreateColorToolbar />
             <CreateParagraphToolbar />
             <CreateTableToolbar />
-            {/* <CreateInsertToolbar />
-                <CreateViewToolbar /> */}
+            <CreateInsertToolbar />
+            {/* <CreateViewToolbar /> */}
         </div>
     )
 }
