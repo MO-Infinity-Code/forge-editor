@@ -1,6 +1,6 @@
 {
     "name": "forge-edit",
-    "version": "0.1.0-beta.5",
+    "version": "0.1.0-beta.6",
     "description": "A lightweight WYSIWYG editor built with Preact",
     "main": "./dist/index.js",
     "module": "./dist/index.js",

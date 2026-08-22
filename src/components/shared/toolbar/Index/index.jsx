@@ -19,7 +19,7 @@ export function Toolbar({ editorRef }) {
             <CreateParagraphToolbar />
             <CreateTableToolbar />
             <CreateInsertToolbar />
-            {/* <CreateViewToolbar /> */}
+            <CreateViewToolbar />
         </div>
     )
 }
