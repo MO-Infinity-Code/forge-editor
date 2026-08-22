@@ -1,6 +1,6 @@
 import { getEditorOptions } from "../components/shared/Hooks/options.js"
 import { createLightEditor } from "../components/light/index.jsx"
-
+import "./style.css"
 function ForgeEditor(element) {
     const options = getEditorOptions(element)
     if (options.type === "light") {

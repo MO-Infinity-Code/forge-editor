@@ -1,6 +1,6 @@
 {
     "name": "forge-edit",
-    "version": "0.1.0-beta.6",
+    "version": "0.1.0-beta.12",
     "description": "A lightweight WYSIWYG editor built with Preact",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
@@ -26,7 +26,8 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "vite": "^8.2.0"
+        "vite": "^8.2.0",
+        "vite-plugin-css-injected-by-js": "^5.0.2"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.3.3",

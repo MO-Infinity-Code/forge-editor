@@ -1,16 +1,16 @@
 import { defineConfig } from "vite"
 import tailwindcss from "@tailwindcss/vite"
+import cssInjectedByJs from "vite-plugin-css-injected-by-js"
 
 export default defineConfig({
     build: {
         lib: {
-            entry: "src/main/index.jsx",
+            entry: "src/main/main.jsx",
             name: "ForgeEdit",
             fileName: "index",
             formats: ["es"]
         },
         rollupOptions: {
-            external: ["preact", "preact/hooks", "sweetalert2"],
             output: {
                 globals: {
                     preact: "preact",
@@ -24,5 +24,5 @@ export default defineConfig({
         jsx: "automatic",
         jsxImportSource: "preact"
     },
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss(), cssInjectedByJs()]
 })

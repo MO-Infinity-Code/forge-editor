@@ -1,19 +1,25 @@
+function wrapRangeInSpan(range, targetFont) {
+    const span = document.createElement("span")
+    span.style.fontFamily = targetFont
+
+    try {
+        span.appendChild(range.extractContents())
+        range.insertNode(span)
+        return span
+    } catch (e) {
+        return null
+    }
+}
+
 export const handleFontName = (range, selection, fontName) => {
     const targetFont = fontName || "Arial"
 
     if (!range || !selection) return
 
     if (!range.collapsed) {
-        const span = document.createElement("span")
-        span.style.fontFamily = targetFont
+        const span = wrapRangeInSpan(range, targetFont)
 
-        try {
-            span.appendChild(range.extractContents())
-            range.insertNode(span)
-        } catch (e) {
-            document.execCommand("fontName", false, targetFont)
-            return
-        }
+        if (!span) return
 
         const newRange = document.createRange()
         newRange.selectNodeContents(span)
@@ -55,11 +61,6 @@ export const getActiveFontName = (editorElement) => {
             if (cleanFont) return cleanFont
         }
         node = node.parentNode
-    }
-
-    const computedFont = window.getComputedStyle(editorElement).fontFamily
-    if (computedFont) {
-        return computedFont.split(",")[0].replace(/['"]/g, "").trim()
     }
 
     return null

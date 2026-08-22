@@ -48,18 +48,18 @@ export function FontNameToolbar({ currentFont, applyFont }) {
     )
 
     return (
-        <div className="forge-toolbar-group forge-toolbar-fontname relative flex items-center">
+        <div className="forge-toolbar-group forge-toolbar-fontname relative flex shrink-0 items-center">
             <div className="forge-color-button-group flex h-[30px] items-center overflow-visible rounded border border-[#ccc] bg-white hover:border-[#aaa] hover:bg-[#f9f9f9]">
                 <button
                     type="button"
-                    className="forge-fontname-main group relative flex h-full items-center justify-center min-w-[70px] cursor-pointer border-none bg-transparent px-2 hover:bg-black/5"
+                    className="forge-fontname-main group relative flex h-full w-[70px] shrink-0 items-center justify-center cursor-pointer border-none bg-transparent px-2 hover:bg-black/5"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => {
                         if (dropdownBtnRef.current) dropdownBtnRef.current.click()
                     }}
                     aria-label="Current font">
                     <span
-                        className="forge-current-fontname max-w-[65px] truncate text-xs text-[#333]"
+                        className="forge-current-fontname inline-block max-w-[50px] truncate text-xs text-[#333]"
                         style={{ fontFamily: currentFont }}>
                         {currentFont}
                     </span>
@@ -73,7 +73,7 @@ export function FontNameToolbar({ currentFont, applyFont }) {
                 <button
                     ref={dropdownBtnRef}
                     type="button"
-                    className="forge-fontname-dropdown-btn group relative flex h-full items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 hover:bg-black/5"
+                    className="forge-fontname-dropdown-btn group relative flex h-full shrink-0 items-center justify-center min-w-[18px] cursor-pointer border-l border-[#ccc] bg-transparent px-1 hover:bg-black/5"
                     onMouseDown={(e) => e.preventDefault()}
                     aria-label="More fonts">
                     <ArrowIcon />
